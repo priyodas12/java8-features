@@ -3,6 +3,10 @@ package io.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+/*
+Stream.flatMap() helps in converting Collection<Collection<T>> to Collection<T>.
+flatMap() = map() + Flattening
+*/
 
 public class Flatmap {
     public static void main(String[] args) {
