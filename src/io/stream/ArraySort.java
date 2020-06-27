@@ -10,7 +10,7 @@ public class ArraySort {
         Integer [] a=new Integer[]{1,4,2,6,3,7,-8};
         //ascending order
         Arrays.asList(a).stream().sorted().forEach(System.out::println);
-        System.out.println("--------------------------------------");
+        System.out.println("------");
         //descending order
         Arrays.asList(a).stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
     }
