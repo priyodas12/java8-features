@@ -9,7 +9,8 @@ public class ArraySort {
     public static void main(String[] args) {
         Integer [] a=new Integer[]{1,4,2,6,3,7,-8};
         //ascending order
-        Arrays.asList(a).stream().sorted().forEach(System.out::println);
+        Object [] b=Arrays.asList(a).stream().sorted().toArray();
+        System.out.println(Arrays.toString(b));
         System.out.println("------");
         //descending order
         Arrays.asList(a).stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
