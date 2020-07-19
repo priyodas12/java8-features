@@ -15,12 +15,12 @@ public class ParallelStream {
         //It will always sequential,wheather you collect as DS or not.
         IntStream.range(0,50).filter(i->i%2==0).mapToObj(i->i).collect(Collectors.toList()).forEach(System.out::println);
         long endTime = System.currentTimeMillis();
-        System.out.println("time taken for stream "+(endTime-startTime));
+        System.out.println("time taken for normal stream "+(endTime-startTime));
 
         startTime = System.currentTimeMillis();
         //when you will be collecting the value as any DS(List,Set etc) that time it will be sequential,else it will print random value
         //uncomment line 22 and 14
-        //IntStream.range(0,50).sequential().filter(i->i%2==0).forEach(System.out::println);
+        //IntStream.range(0,50).parallel().filter(i->i%2==0).forEach(System.out::println);
         IntStream.range(0,50).parallel().filter(i->i%2==0).mapToObj(i->i).collect(Collectors.toList()).forEach(System.out::println);
         endTime = System.currentTimeMillis();
         System.out.println("time taken for parallel stream "+(endTime-startTime));
