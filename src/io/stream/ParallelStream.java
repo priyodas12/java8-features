@@ -10,6 +10,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/*
+@priyodas12
+taking 0-49 element and string even values in a arraylist,later on we are collecting as list in stream flow.
+to avoid race condition synchronized DS taken for parallel stream operation.
+*/
+
 public class ParallelStream {
 
     public static void main(String[] args) {
