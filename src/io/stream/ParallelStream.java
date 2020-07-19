@@ -2,6 +2,8 @@ package io.stream;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ParallelStream {
@@ -9,11 +11,15 @@ public class ParallelStream {
     public static void main(String[] args) {
        //Integer [] a=new Integer[]{3,4,5,1,5,3,2};
        long startTime = System.currentTimeMillis();
-       IntStream.range(0,50).filter(i->i%2==0).forEach(System.out::println);
+       //IntStream.range(0,50).sequential().filter(i->i%2==0).forEach(System.out::println);
+        IntStream.range(0,50).filter(i->i%2==0).mapToObj(i->i).collect(Collectors.toList()).forEach(System.out::println);
        long endTime = System.currentTimeMillis();
        System.out.println("time taken for stream "+(endTime-startTime));
+
        startTime = System.currentTimeMillis();
-       IntStream.range(0,50).parallel().filter(i->i%2==0).forEach(System.out::println);
+       //when you will be collecting the value as any DS that time it will be sequential,else it will print random value
+       //IntStream.range(0,50).sequential().filter(i->i%2==0).forEach(System.out::println);
+       IntStream.range(0,50).parallel().filter(i->i%2==0).mapToObj(i->i).collect(Collectors.toList()).forEach(System.out::println);
        endTime = System.currentTimeMillis();
        System.out.println("time taken for parallel stream "+(endTime-startTime));
     }
